@@ -6,7 +6,7 @@ let fragment =document.createDocumentFragment()
 
 function elementFactory(el, content, ...children) {
   let element = document.createElement(el);
-  element.innerHTML = content
+  element.innerHTML = content || null
   children.forEach(child => {
     element.appendChild(child)
   })
@@ -22,20 +22,23 @@ fetch("http://localhost:8088/food")
   .then(parsedFoods => {
     parsedFoods.forEach((food) => {
       localFood.push(food)
-      console.log(food)
+      // console.log(food)
       fetch(`https://world.openfoodfacts.org/api/v0/product/${food.barcode}.json`)
         .then(response => response.json())
         .then(productInfo => {
-          console.log(productInfo)
-          let title = elementFactory("h2", localFood.name)
-          let subtitle = elementFactory("h3", localFood.ethnicity)
-          console.log(productInfo.product.ingredients_text)
+          console.log(food)
+          let title = elementFactory("h2", food.name)
+          let subtitle = elementFactory("h3", food.ethnicity)
+          // console.log(productInfo.product.ingredients_text)
           let ingredients = elementFactory("p", productInfo.product.ingredients_text)
-          console.log(productInfo.product.countries_hierarchy[0])
-          let nutrients = elementFactory("p", ``)
-          console.log(productInfo.product.nutriments.energy_serving)
-          console.log(productInfo.product.nutriments.fat_serving)
-          console.log(productInfo.product.nutriments.sugars_serving)
+          // console.log(productInfo.product.countries_hierarchy[0])
+          let nutrients = elementFactory("p", `Calories per Serving: ${productInfo.product.nutriments.energy_serving}. Fat per serving ${productInfo.product.nutriments.fat_serving}. Sugar per serving: ${productInfo.product.nutriments.sugars_serving}. `)
+          // console.log(productInfo.product.nutriments.energy_serving)
+          // console.log(productInfo.product.nutriments.fat_serving)
+          // console.log(productInfo.product.nutriments.sugars_serving)
+          let foodCard = elementFactory("div", null, title, subtitle,ingredients, nutrients)
+          fragment.appendChild(foodCard)
+          foodlist.appendChild(fragment)
         })
     })
   });
@@ -45,9 +48,9 @@ fetch("http://localhost:8088/food")
   
 
 
-  function domDisplayer (...params) {
+  // function domDisplayer (...params) {
 
-  }
+  // }
 //     console.table(parsedFoods)
 //     let foodlist = document.querySelector("#foodlist")
 //     parsedFoods.forEach(foodElement => {

@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Lasagna",
       "type": "pasta",
-      "ethnicity": "italian",
+      "ethnicity": "Italian",
       "barcode": "0011110111432"
     },
     {
       "name": "Red Curry",
       "type": "curry",
-      "ethnicity": "thai",
+      "ethnicity": "Thai",
       "id": 2,
       "meal": "every meal",
       "barcode": "0036800367852"
@@ -19,21 +19,21 @@
       "id": 3,
       "name": "Green curry",
       "type": "curry",
-      "ethnicity": "thai",
+      "ethnicity": "Thai",
       "barcode": "0011150111720"
     },
     {
       "id": 4,
       "name": "Ravioli",
       "type": "pasta",
-      "ethnicity": "italian",
+      "ethnicity": "Italian",
       "barcode": "0008006915137"
     },
     {
       "id": 5,
       "name": "Tuscan Soup",
       "type": "vegetarian",
-      "ethnicity": "italian",
+      "ethnicity": "Italian",
       "barcode": "0688267154904"
     },
     {
