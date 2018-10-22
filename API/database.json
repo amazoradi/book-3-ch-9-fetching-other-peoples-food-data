@@ -1,0 +1,88 @@
+{
+  "food": [
+    {
+      "id": 1,
+      "name": "Lasagna",
+      "type": "pasta",
+      "ethnicity": "italian",
+      "barcode": "0011110111432"
+    },
+    {
+      "name": "Red Curry",
+      "type": "curry",
+      "ethnicity": "thai",
+      "id": 2,
+      "meal": "every meal",
+      "barcode": "0036800367852"
+    },
+    {
+      "id": 3,
+      "name": "Green curry",
+      "type": "curry",
+      "ethnicity": "thai",
+      "barcode": "0011150111720"
+    },
+    {
+      "id": 4,
+      "name": "Ravioli",
+      "type": "pasta",
+      "ethnicity": "italian",
+      "barcode": "0008006915137"
+    },
+    {
+      "id": 5,
+      "name": "Tuscan Soup",
+      "type": "vegetarian",
+      "ethnicity": "italian",
+      "barcode": "0688267154904"
+    },
+    {
+      "name": "Burrito",
+      "type": "meaty-cheesy",
+      "ethnicity": "Mexican",
+      "id": 6,
+      "barcode": "0016741911123"
+    },
+    {
+      "name": "Hamurger",
+      "type": "sandwhich",
+      "ethnicity": "AMERICAN",
+      "id": 7,
+      "barcode": "0011110009173"
+    }
+  ],
+  "drink": [
+    {
+      "id": 1,
+      "name": "Dr. Pepper",
+      "type": "Soda",
+      "ethnicity": "American"
+    },
+    {
+      "name": "Guiness",
+      "type": "Beer",
+      "ethnicity": "Irish",
+      "id": 2
+    }
+  ],
+  "desert": [
+    {
+      "name": "Brownie",
+      "type": "chocolate",
+      "ethnicity": "american?",
+      "id": 1
+    },
+    {
+      "name": "cookies",
+      "type": "chocolate",
+      "ethnicity": "american?",
+      "id": 2
+    },
+    {
+      "name": "banana's foster",
+      "type": "fruit",
+      "ethnicity": "european?",
+      "id": 3
+    }
+  ]
+}
