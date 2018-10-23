@@ -4,12 +4,18 @@
 let foodlist = document.querySelector("#foodlist")
 let fragment =document.createDocumentFragment()
 
+
+// function that will create a certain element 
 function elementFactory(el, content, ...children) {
+  // creates any element you pass through el
   let element = document.createElement(el);
+  // allows any content to be passed to the element through content or nothing (null)
   element.innerHTML = content || null
+  // appends the children (passed through with children) to the element
   children.forEach(child => {
     element.appendChild(child)
   })
+  // returns the element
   return element
 }
 
@@ -22,59 +28,17 @@ fetch("http://localhost:8088/food")
   .then(parsedFoods => {
     parsedFoods.forEach((food) => {
       localFood.push(food)
-      // console.log(food)
       fetch(`https://world.openfoodfacts.org/api/v0/product/${food.barcode}.json`)
         .then(response => response.json())
         .then(productInfo => {
-          console.log(food)
+          // calling our element creting function with our data that has been extracted from the local and external API
           let title = elementFactory("h2", food.name)
           let subtitle = elementFactory("h3", food.ethnicity)
-          // console.log(productInfo.product.ingredients_text)
           let ingredients = elementFactory("p", productInfo.product.ingredients_text)
-          // console.log(productInfo.product.countries_hierarchy[0])
           let nutrients = elementFactory("p", `Calories per Serving: ${productInfo.product.nutriments.energy_serving}. Fat per serving ${productInfo.product.nutriments.fat_serving}. Sugar per serving: ${productInfo.product.nutriments.sugars_serving}. `)
-          // console.log(productInfo.product.nutriments.energy_serving)
-          // console.log(productInfo.product.nutriments.fat_serving)
-          // console.log(productInfo.product.nutriments.sugars_serving)
           let foodCard = elementFactory("div", null, title, subtitle,ingredients, nutrients)
           fragment.appendChild(foodCard)
           foodlist.appendChild(fragment)
         })
     })
   });
-
-
-
-  
-
-
-  // function domDisplayer (...params) {
-
-  // }
-//     console.table(parsedFoods)
-//     let foodlist = document.querySelector("#foodlist")
-//     parsedFoods.forEach(foodElement => {
-//       let foodDiv = document.createElement("div")
-//       let foodCard = document.createElement("h2")
-//       foodCard.textContent = foodElement.name
-//       let foodCardType = document.createElement("p")
-//       let foodCardEth = document.createElement("p")
-//       foodCardType.textContent = foodElement.type
-//       foodCardEth.textContent = foodElement.ethnicity
-//       foodDiv.appendChild(foodCard)
-//       foodDiv.appendChild(foodCardType)
-//       foodDiv.appendChild(foodCardEth)
-//       foodlist.appendChild(foodDiv)
-//     });
-//   })
-// let foodDiv = document.createElement("div")
-// let foodTitle = document.createElement("h1")
-// let foodSubtitle = document.createElement("h3")
-// let foodContent = document.createElement("p")
-// let foodnutri = document.createElement("p")
-
-// //for each food item fetch with url with unique barcode, seach to x location, display that text
-// //dinamically on the DOM in the 2nd (or new) P in the right div
-
-
-
